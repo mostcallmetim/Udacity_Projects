@@ -1,0 +1,48 @@
+h1 {
+	text-align: center;
+	color: #294860;
+}
+
+body {
+	font-family: Helvetica, sans-serif;
+}
+
+.lesson {
+	background-color: #294860;
+	border-radius: 20px;
+	color: white;
+	padding: 10px;
+	margin: 10px;
+}
+
+h2 {
+	text-align: center;
+	margin: 10px;
+}
+
+.concept {
+	background-color: #DFEAF1;
+	text-align: center;
+	padding: 4px;
+	margin: 10px;
+	border-radius: 4px;
+	color: black;
+	clear: left;
+	overflow: auto;
+}
+
+.concept-title {
+    font-size: 20px;
+    margin: 8px;
+    text-align: center;
+    color: #294860;
+}
+
+.aid {
+	clear: both;
+}
+
+.citation {
+	color: #827b7b;
+	font-size: 10px;
+}
