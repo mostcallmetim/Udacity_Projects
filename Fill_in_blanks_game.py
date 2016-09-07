@@ -8,7 +8,7 @@ master_level = "Princess Leia's home planet was __1__.\n Darth Vader was born on
 master_inputs = ['Alderaan','Tatooine','Sidious','Owen']
 
 def select_level():
-    """Prompts user for level'"""
+    """Prompts user to select a level'"""
     prompt = "Please select a game difficulty by typing it in!\n"
     prompt += "Possible choices include padawan, jedi, and master.\n"
     choices = {a:"padawan" for a in ("padawan", '1',)}
@@ -23,6 +23,7 @@ def select_level():
 
 
 def get_answers(level):
+    """Takes a level (padawan, jedi, or master) as argument. Returns level strings and input lists."""
     global padawan_level
     global padawan_inputs
     global jedi_level
@@ -31,15 +32,16 @@ def get_answers(level):
     global master_inputs
     if level == 'padawan':
         return (padawan_level, padawan_inputs)
-    if level == 'jedi':
+    elif level == 'jedi':
         return (jedi_level, jedi_inputs)
-    if level == 'master':
+    elif level == 'master':
         return (master_level, master_inputs)
     print "C-3PO: Error, try again."
     raise ValueError
 
 
 def ask_question(blank_game, blank_num, answer, max_trys = 3):
+    """Takes the current level string. Returns the partially answered sentence and the number of the next blank."""
     trys_left = max_trys
     to_replace = '__' + str(blank_num) + '__'
     prompt = make_display(blank_game, to_replace, trys_left, max_trys)
@@ -56,7 +58,7 @@ def ask_question(blank_game, blank_num, answer, max_trys = 3):
 
 
 def make_display(current_mode, to_replace, trys_left, max_trys):
-    """Returns a string to user."""
+    """Returns a string to user based on current sentence."""
     prompt = "\nC-3PO: current data reads as such:\n{}\n\n"
     prompt += "C-3PO: What is the answer to blank space {}? "
     prompt = prompt.format(current_mode, to_replace)
@@ -71,6 +73,7 @@ def make_display(current_mode, to_replace, trys_left, max_trys):
 
 
 def game():
+    """Plays the game. Returns True if the user wins, False otherwise"""
     level = select_level()
     blank_game, answers = get_answers(level)
     max_guess = 4
